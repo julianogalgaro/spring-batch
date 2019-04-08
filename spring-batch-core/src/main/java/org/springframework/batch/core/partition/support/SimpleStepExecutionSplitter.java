@@ -21,6 +21,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Map.Entry;
+import java.util.LinkedHashSet;
 import java.util.Set;
 
 import org.springframework.batch.core.BatchStatus;
@@ -175,7 +176,7 @@ public class SimpleStepExecutionSplitter implements StepExecutionSplitter, Initi
 		JobExecution jobExecution = stepExecution.getJobExecution();
 
 		Map<String, ExecutionContext> contexts = getContexts(stepExecution, gridSize);
-		Set<StepExecution> set = new HashSet<StepExecution>(contexts.size());
+		Set<StepExecution> set = new LinkedHashSet<StepExecution>(contexts.size());
 
 		for (Entry<String, ExecutionContext> context : contexts.entrySet()) {
 
